@@ -13,19 +13,12 @@ const font = fetch(
 export default async function handler(req: NextRequest) {
   const fontData = await font;
   const { searchParams } = new URL(req.url);
-  const title = searchParams.get('title') ?? ""
-  const subtitle = searchParams.get('subtitle') ?? ""
-  const date = searchParams.get('date') ?? "";
-  const tags = searchParams.get('tags') ?? "";
+  const title = searchParams.get('title') ?? '';
+  const subtitle = searchParams.get('subtitle') ?? '';
+  const date = searchParams.get('date') ?? '';
+  const tags = searchParams.get('tags') ?? '';
   return new ImageResponse(
-    (
-      <OGCard
-        title={title}
-        subtitle={subtitle}
-        date={date}
-        tags={tags}
-      />
-    ),
+    <OGCard title={title} subtitle={subtitle} date={date} tags={tags} />,
     {
       width: 1200,
       height: 630,
