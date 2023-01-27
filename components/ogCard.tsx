@@ -5,7 +5,8 @@ interface Props {
   date: string;
 }
 const OGCard = ({ title, subtitle, tags, date }: Props) => {
-  const splitTags = tags.replaceAll(' ', '').split(',');
+  const splitTags =
+    tags.length > 0 ? tags.replaceAll(' ', '').split(',') : null;
 
   return (
     <div
@@ -39,8 +40,8 @@ const OGCard = ({ title, subtitle, tags, date }: Props) => {
           </div>
         </div>
         <h1
-          tw={`mb-20 text-5xl font-bold tracking-wide text-[#292F36]`}
-          style={{ fontFamily: 'NotoSansJP' }}
+          tw={`mb-20 w-[1060px] text-5xl font-bold tracking-wide text-[#292F36]`}
+          style={{ lineHeight: '1.2em', fontFamily: 'NotoSansJP' }}
         >
           {title}
         </h1>
