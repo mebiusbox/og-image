@@ -17,8 +17,17 @@ export default async function handler(req: NextRequest) {
   const subtitle = searchParams.get('subtitle') ?? '';
   const date = searchParams.get('date') ?? '';
   const tags = searchParams.get('tags') ?? '';
+  const nologo = searchParams.has('nologo');
   return new ImageResponse(
-    <OGCard title={title} subtitle={subtitle} date={date} tags={tags} />,
+    (
+      <OGCard
+        title={title}
+        subtitle={subtitle}
+        date={date}
+        tags={tags}
+        nologo={nologo}
+      />
+    ),
     {
       width: 1200,
       height: 630,

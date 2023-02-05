@@ -3,8 +3,9 @@ interface Props {
   subtitle: string;
   tags: string;
   date: string;
+  nologo: boolean;
 }
-const OGCard = ({ title, subtitle, tags, date }: Props) => {
+const OGCard = ({ title, subtitle, tags, date, nologo }: Props) => {
   const splitTags =
     tags.length > 0 ? tags.replaceAll(' ', '').split(',') : null;
 
@@ -69,20 +70,22 @@ const OGCard = ({ title, subtitle, tags, date }: Props) => {
             </>
           )}
         </div>
-        <div tw="absolute bottom-10 right-10 flex justify-end">
-          <img
-            src="https://mebiusbox.github.io/img/logo.svg"
-            width={40}
-            height={40}
-            alt="logo"
-          />
-          <span
-            tw={`ml-4 mt-1 text-lg tracking-wide text-[#292F36]`}
-            style={{ fontFamily: 'NotoSansJP' }}
-          >
-            Docusaurus
-          </span>
-        </div>
+        {!nologo && (
+          <div tw="absolute bottom-10 right-10 flex justify-end">
+            <img
+              src="https://mebiusbox.github.io/img/logo.svg"
+              width={40}
+              height={40}
+              alt="logo"
+            />
+            <span
+              tw={`ml-4 mt-1 text-lg tracking-wide text-[#292F36]`}
+              style={{ fontFamily: 'NotoSansJP' }}
+            >
+              Docusaurus
+            </span>
+          </div>
+        )}
       </div>
     </div>
   );
